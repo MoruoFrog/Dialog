@@ -9,6 +9,7 @@
     :lock-scroll="lockScroll">
     <component
       :is="_component"
+      ref="component"
       @done="handleComponentDone"
       @cancel="handleComponentCancel">
     </component>
@@ -17,8 +18,6 @@
 
 <script>
 import { Dialog } from 'element-ui'
-
-function noop() {}
 
 export default {
   components: {
@@ -58,11 +57,6 @@ export default {
     closeAfterDone: {
       type: Boolean,
       default: true,
-    },
-
-    afterSubmit: {
-      type: Function,
-      default: noop,
     },
 
     /*
@@ -114,6 +108,8 @@ export default {
       // 返回vue选项对象
       const that = this
       return {
+        name: 'dynamic',
+
         render() {
           // 在vNode上手动添加done事件和cancel事件，使弹窗自动关闭
           if (that.closeAfterDone) {
@@ -167,6 +163,8 @@ export default {
       } else {
         this.visible = false
       }
+
+      this.$refs.component.$destroy()
     },
 
     show() {
