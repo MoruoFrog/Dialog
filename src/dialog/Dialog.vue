@@ -60,15 +60,13 @@ export default {
     },
 
     /*
-      * 支持4种方式
-      * 1、直接传入component
-      * 2、异步import
-      * 3、返回jsx的函数
-      * 4、jsx形式的组件
+      * 支持2种方式
+      * 1、异步import
+      * 2、返回jsx的函数
      */
     component: {
-      type: [Object, Function],
-      default: () => {},
+      type: Function,
+      required: true,
     },
   },
 
@@ -84,33 +82,17 @@ export default {
       * 直接传入jsx和返回jsx的函数，需要手动创建vue选项对象
     */
     _component() {
+      const fn = this.component
       let vNode
-
-      /*
-        * 如果是vNode，返回vue选项对象; 如果是vue选项对象，直接返回
-        * 通过对象的原型来判断是否为vNode对象
-      */
-      if (typeof this.component === 'object') {
-        if (Object.getPrototypeOf(this.component) === Object.prototype) return this.component
-
-        vNode = this.component
-      }
-
-      if (typeof this.component === 'function') {
-        // 通过运行一次来判断是异步import，还是返回jsx的函数
-        const fnResult = this.component()
-        const isPromise = o => Object.prototype.toString.call(o) === '[object Promise]'
-        if (isPromise(fnResult)) return this.component
-
-        vNode = fnResult
-      }
 
       // 返回vue选项对象
       const that = this
       return {
-        name: 'dynamic',
+        name: 'dynamic-wrapper',
 
         render() {
+          vNode = fn()
+
           // 在vNode上手动添加done事件和cancel事件，使弹窗自动关闭
           if (that.closeAfterDone) {
             /* eslint-disable */
@@ -147,7 +129,6 @@ export default {
     // 组件处理完自己的事情触发，默认关闭弹窗
     handleComponentDone() {
       if (this.closeAfterDone) this.close()
-      this.afterSubmit()
     },
 
     handleComponentCancel() {
