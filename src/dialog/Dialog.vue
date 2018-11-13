@@ -77,11 +77,8 @@ export default {
   },
 
   computed: {
-    /*
-      * 异步import和直接传入component，直接返回
-      * 直接传入jsx和返回jsx的函数，需要手动创建vue选项对象
-    */
     _component() {
+      // 这一步很重要，让component收集到了这个计算属性的依赖，否则当component变化时不会重新渲染组件
       const fn = this.component
       let vNode
 
@@ -91,10 +88,16 @@ export default {
         name: 'dynamic-wrapper',
 
         render() {
+          // fn的运行一定要在render函数中，也是为了挂载依赖
           vNode = fn()
 
           // 在vNode上手动添加done事件和cancel事件，使弹窗自动关闭
           if (that.closeAfterDone) {
+            // 直接写jsx的
+            if (!vNode.componentOptions) {
+              return vNode
+            }
+
             /* eslint-disable */
             let listeners = vNode.componentOptions.listeners
 

@@ -10,7 +10,7 @@ export default function createDialog(Vue, { store = {}, router = {} }, options) 
     dialog.$children[0].visible = true
   } else {
     dialog = new Vue({
-      name: 'dialog',
+      name: 'Root-Dialog',
       router,
       store,
       data() {
