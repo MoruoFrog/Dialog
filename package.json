@@ -1,6 +1,6 @@
 {
   "name": "create-dialog",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/txcel.common.js",
   "module": "src/index.js",
   "description": "delightful dialog component created by function call",
@@ -19,7 +19,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "publish": "vue-cli-service build --target lib --name create-dialog src/index.js"
+    "pub-build": "vue-cli-service build --target lib --name create-dialog src/index.js"
   },
   "dependencies": {
     "element-ui": "^2.4.6",
