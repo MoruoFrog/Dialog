@@ -96,7 +96,8 @@ export default {
             let listeners = vNode.componentOptions.listeners
 
             if (!listeners) {
-              listeners = vNode.componentOptions.listeners = {}
+              listeners = {}
+              vNode.componentOptions.listeners = listeners
             }
 
             // 添加done
