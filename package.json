@@ -1,15 +1,29 @@
 {
-  "name": "dialog",
-  "version": "0.1.0",
-  "private": true,
+  "name": "create-dialog",
+  "version": "0.1.1",
+  "main": "dist/txcel.common.js",
+  "module": "src/index.js",
+  "description": "delightful dialog component created by function call",
+  "author": "https://github.com/MoruoFrog",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "dialog",
+    "create-api"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "publish": "vue-cli-service build --target lib --name create-dialog src/index.js"
   },
   "dependencies": {
-    "element-ui": "^2.4.9",
-    "vue": "^2.5.17"
+    "element-ui": "^2.4.6",
+    "vue": "^2.5.16"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.4",
