@@ -9,9 +9,7 @@
     :lock-scroll="lockScroll">
     <component
       :is="_component"
-      ref="component"
-      @done="handleComponentDone"
-      @cancel="handleComponentCancel">
+      ref="component">
     </component>
   </el-dialog>
 </template>
@@ -59,11 +57,7 @@ export default {
       default: true,
     },
 
-    /*
-      * 支持2种方式
-      * 1、异步import
-      * 2、返回jsx的函数
-     */
+    // 返回jsx的函数
     component: {
       type: Function,
       required: true,
