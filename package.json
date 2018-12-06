@@ -1,6 +1,6 @@
 {
   "name": "create-dialog",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "dist/txcel.common.js",
   "module": "src/index.js",
   "description": "delightful dialog component created by function call",
@@ -9,7 +9,8 @@
   "keywords": [
     "vue",
     "dialog",
-    "create-api"
+    "create-api",
+    "modal"
   ],
   "files": [
     "dist",

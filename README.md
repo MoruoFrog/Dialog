@@ -71,6 +71,28 @@ this.$dialog({
 })
 ```
 
+## 组件名称首字母大写
+
+由于使用了jsx，所以你必须使用首字母大写的形式来使用组件。   [React的jsx文档](https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
+
+但是，如果你已经在Vue中注册过了这个组件，那就可以突破jsx的这个限制
+
+```javascript
+import Text from './Text.vue'
+
+...
+  components: {
+    text: Text
+  },
+...
+
+this.$dialog({
+  title: '哎哟不错哦',
+  // 注册了之后就可以使用注册之后的组件名作为tag
+  component: () => <test onDone={ this.fetchSomeData }/>,
+})
+```
+
 ## 组件生命周期
 
 当弹窗消失（隐藏）时，传入的组件会被销毁
