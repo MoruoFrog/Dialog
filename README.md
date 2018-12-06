@@ -58,7 +58,7 @@ Dialog自动监听了组件的cancel和done事件，组件里$emit这两个事�
 methods: {
   async someMethods() {
     await postSomeData()
-    this.$emit('done) // 弹窗关闭
+    this.$emit('done') // 弹窗关闭
   },
 }
 
