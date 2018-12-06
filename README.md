@@ -28,11 +28,14 @@ this.$dialog({
 })
 ```
 
-**注意： 如果你的项目中没有使用element-ui，import语句需要改为**
+**注意： 如果你的项目中没有使用element-ui，或者你的babel配置excludes掉了node_modules，import语句需要改为**
 
 ```javascript
 import Dialog from 'create-dialog/dist/create-dialog.common.js'
+import 'create-dialog/dist/create-dialog.css'
 ```
+
+这是因为默认的import路径是源码的版本，你可以引用打包之后的版本
 
 ## API
 

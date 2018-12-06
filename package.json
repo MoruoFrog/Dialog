@@ -1,7 +1,7 @@
 {
   "name": "create-dialog",
-  "version": "0.1.6",
-  "main": "dist/txcel.common.js",
+  "version": "0.1.8",
+  "main": "dist/create-dialog.common.js",
   "module": "src/index.js",
   "description": "delightful dialog component created by function call",
   "author": "https://github.com/MoruoFrog",
