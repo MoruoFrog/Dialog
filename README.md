@@ -1,4 +1,7 @@
+
 # 一个非常简洁的弹窗组件
+
+<a href="#english">English Document</a>
 
 ```javascript
 this.$dialog({
@@ -101,3 +104,88 @@ this.$dialog({
 当弹窗消失（隐藏）时，传入的组件会被销毁
 
 Enjoy.
+
+***
+
+
+<a name="english"></a>
+
+# A delightful Vue dialog 
+
+## Usage
+
+```shell
+npm i create-dialog
+```
+
+```javascript
+import Dialog from 'create-dialog'
+
+Vue.use(Dialog, { store, router }) // 如果没有路由和Vuex，就不传
+```
+
+then You can use it
+
+```Javascript
+this.$dialog({
+  title: 'amazing',
+  component: () => <Test />,
+  ...
+})
+```
+
+**Note!!** If you don't use **[element-ui](https://github.com/ElemeFE/element)** in your project, You must **change the import target as below**:
+
+```Javascript
+import Dialog from 'create-dialog/dist/create-dialog.common.js'
+import 'create-dialog/dist/create-dialog.css'
+```
+
+## props
+
+You can check all props [here](http://element-cn.eleme.io/#/en-US/component/dialog)
+```Javascript
+this.$dialog({
+  title: 'dialog',
+  width: '600px',
+  showClose: false,
+  component: () => <Test />,
+  ...
+})
+```
+
+## Close dialog
+
+in Text.vue as example above, you can close by emit events
+
+```javascript
+this.$emit('done') // dialog will be close
+this.$emit('cancel') // dialog will be close too
+```
+
+## Capitalize component name
+
+[Due to the limit of jsx](https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)，you must capitalize your custom name.
+
+But, if you register your component, you can use the registed 
+
+```javascript
+import Text from './Text.vue'
+
+...
+  components: {
+    // register component
+    text: Text
+  },
+...
+
+this.$dialog({
+  title: 'dialog',
+  // use the registed name
+  component: () => <test onDone={ this.fetchSomeData }/>,
+})
+```
+
+## The lifecycle of component
+
+The component will be destroyed when dialog hidden.

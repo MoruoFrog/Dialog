@@ -1,16 +1,20 @@
 {
   "name": "create-dialog",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "dist/create-dialog.common.js",
   "module": "src/index.js",
-  "description": "delightful dialog component created by function call",
+  "description": "delightful vue dialog component created by function call",
   "author": "https://github.com/MoruoFrog",
   "license": "MIT",
   "keywords": [
     "vue",
     "dialog",
+    "vue-dialog",
+    "vuejs",
+    "modal",
+    "vue-modal",
     "create-api",
-    "modal"
+    "element-ui"
   ],
   "files": [
     "dist",
