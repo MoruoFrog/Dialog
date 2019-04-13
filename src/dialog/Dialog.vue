@@ -103,15 +103,15 @@ export default {
             // 添加done
             const orginDoneHandler = listeners.done
             /* eslint-disable func-names */
-            listeners.done = function () {
-              if (orginDoneHandler) orginDoneHandler()
-              that.handleComponentDone()
+            listeners.done = function (...p) {
+              if (orginDoneHandler) orginDoneHandler(...p)
+              that.handleComponentDone(...p)
             }
 
             // 添加cancel
             const orginCancelHandler = listeners.cancel
             /* eslint-disable func-names */
-            listeners.cancel = function () {
+            listeners.cancel = function (...p) {
               if (orginCancelHandler) orginCancelHandler()
               that.close()
             }
