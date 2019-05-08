@@ -121,7 +121,7 @@ npm i create-dialog
 ```javascript
 import Dialog from 'create-dialog'
 
-Vue.use(Dialog, { store, router }) // 如果没有路由和Vuex，就不传
+Vue.use(Dialog, { store, router }) // if no store or router, ignore it
 ```
 
 then You can use it
