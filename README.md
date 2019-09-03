@@ -76,6 +76,15 @@ this.$dialog({
   component: () => <Test onDone={ this.fetchSomeData }/>,
 })
 ```
+$dialog方法也会暴露close方法，调用它也可以关闭弹窗
+```javascript
+const dialog = this.$dialog({
+  title: '哎哟不错哦',
+  component: () => <Test />,
+})
+dialog.close()
+```
+
 
 ## 组件名称首字母大写
 
