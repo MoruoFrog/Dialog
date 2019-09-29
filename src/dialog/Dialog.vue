@@ -112,7 +112,7 @@ export default {
             const orginCancelHandler = listeners.cancel
             /* eslint-disable func-names */
             listeners.cancel = function (...p) {
-              if (orginCancelHandler) orginCancelHandler()
+              if (orginCancelHandler) orginCancelHandler(...p)
               that.close()
             }
           }
